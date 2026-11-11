@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mapa político de Europa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="bar">
+    <h1>🌍 Mapa político de Europa</h1>
+    <span id="progress">Respondidas: 0 / 0</span>
+    <span id="hint">👆 Haz clic en un país para responder</span>
+    <span id="chip" hidden></span>
+    <span class="spacer"></span>
+    <button id="btnReset" class="ghost">Borrar todo</button>
+    <button id="btnValidate" class="primary">Validar</button>
+  </header>
+
+  <svg id="map"></svg>
+
+  <div id="zoomCtl">
+    <button id="zoomIn" title="Acercar">+</button>
+    <button id="zoomOut" title="Alejar">−</button>
+    <button id="zoomReset" title="Ver todo el mapa">⟲</button>
+  </div>
+
+  <div id="pop" hidden>
+    <button id="popX" class="x" title="Cerrar">×</button>
+    <label>País<select id="popC"></select></label>
+    <label>Capital<select id="popK"></select></label>
+    <div class="legend">P = país escrito · C = capital escrita</div>
+  </div>
+
+  <div id="confirm" class="overlay" hidden>
+    <div class="card">
+      <div id="resEmoji2">⚠️</div>
+      <p id="confirmText"></p>
+      <div class="actions">
+        <button id="confirmNo" class="ghost">No, dejarlo como estaba</button>
+        <button id="confirmYes" class="primary">Sí, cambiarlo</button>
+      </div>
+    </div>
+  </div>
+  <div id="loading">Cargando mapa…</div>
+
+  <div id="modal" class="overlay" hidden>
+    <div class="card">
+      <div id="resEmoji"></div>
+      <div id="resLevel"></div>
+      <div id="resPct"></div>
+      <p id="resDetail"></p>
+      <p id="resLegend" class="legend"></p>
+      <div class="actions">
+        <button id="btnClose" class="ghost">Seguir corrigiendo</button>
+        <button id="btnSolutions" class="ghost">Ver soluciones</button>
+        <button id="btnRestart" class="primary">Empezar de nuevo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
